@@ -24,8 +24,23 @@
       }
     },
     {
+      "name": "default-linux",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "/usr/bin/gcc",
+        "CMAKE_CXX_COMPILER": "/usr/bin/g++"
+      },
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      }
+    },
+    {
       "name": "debug",
-      "inherits": "default",
+      "inherits": "default-linux",
       "displayName": "Debug",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
@@ -33,7 +48,7 @@
     },
     {
       "name": "relwithdebinfo",
-      "inherits": "default",
+      "inherits": "default-linux",
       "displayName": "RelWithDebInfo",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo"
@@ -41,7 +56,7 @@
     },
     {
       "name": "release",
-      "inherits": "default",
+      "inherits": "default-linux",
       "displayName": "Release",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",

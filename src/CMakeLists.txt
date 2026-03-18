@@ -102,7 +102,7 @@ target_sources(HiveWE PUBLIC FILE_SET yeet TYPE CXX_MODULES FILES
 target_sources(HiveWE PRIVATE
 	"main.cpp"
 
-	"main_window/hivewe.rc"
+	"main_window/HiveWE.rc"
 	"main_window/hivewe.cpp"	
 	"main_window/glwidget.cpp"
 	"main_window/main_ribbon.cpp"
