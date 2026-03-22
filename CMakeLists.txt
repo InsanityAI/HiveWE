@@ -69,9 +69,8 @@ target_link_libraries(HiveWE PUBLIC
 	soil2::soil2
 	StormLib::storm
 	BZip2::BZip2
-	libjpeg-turbo::jpeg
+	libjpeg-turbo
 	absl::base
-	libjpeg-turbo::turbojpeg
 	ads::qtadvanceddocking-qt6
 	TBB::tbb
 	imgui::imgui
