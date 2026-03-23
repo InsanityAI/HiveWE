@@ -98,7 +98,7 @@
       "binaryDir": "${sourceDir}/build/${presetName}",
       "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
       "cacheVariables": {
-        "CMAKE_CXX_COMPILER": "/opt/llvm/bin/clang"
+        "CMAKE_CXX_COMPILER": "/usr/bin/clang++"
       },
       "architecture": {
         "value": "x64",

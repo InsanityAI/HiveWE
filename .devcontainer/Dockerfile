@@ -1,31 +1,56 @@
-FROM ubuntu:26.04
+# Build HiveWE on Arch Linux with Clang 22+ (supports C++ modules)
+FROM archlinux:latest
 
-ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="4.3.0"
+# Initialize pacman keyring and install minimal build essentials
+RUN pacman-key --init && \
+    pacman -Syu --noconfirm && \
+    pacman -S --noconfirm \
+    base-devel \
+    clang \
+    extra/llvm \
+    lld \
+    cmake \
+    ninja \
+    git \
+    curl \
+    zip \
+    unzip \
+    tar \
+    python \
+    perl && \
+    pacman -Sc --noconfirm
 
-# Optionally install the cmake for vcpkg
-COPY ./reinstall-cmake.sh /tmp/
+ENV CC=/usr/bin/clang \
+    CXX=/usr/bin/clang++ \
+    AR=/usr/bin/llvm-ar \
+    RANLIB=/usr/bin/llvm-ranlib \
+    LD=/usr/bin/lld
 
-# [Optional] Uncomment this section to install additional vcpkg ports.
-# RUN su vscode -c "${VCPKG_ROOT}/vcpkg install <your-port-name-here>"
+WORKDIR /src
+COPY . .
 
-# [Optional] Uncomment this section to install additional packages.
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends git ninja-build python3 lsb-release \
-    curl wget zip unzip tar ca-certificates openssl software-properties-common gnupg\
-    autoconf autoconf-archive automake  build-essential pkg-config libtool '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev libegl1-mesa-dev 
+# Clone vcpkg and fetch specific baseline
+RUN git clone --depth 1 https://github.com/Microsoft/vcpkg.git /vcpkg && \
+    cd /vcpkg && \
+    git fetch --depth 1 origin 9cbe1df2acf09b1d53cf6e48afa5fda44f61147d || git fetch origin 9cbe1df2acf09b1d53cf6e48afa5fda44f61147d && \
+    git checkout 9cbe1df2acf09b1d53cf6e48afa5fda44f61147d && \
+    /vcpkg/bootstrap-vcpkg.sh -disableMetrics
+ENV VCPKG_ROOT='/vcpkg'
 
-COPY ./install-vcpkg.sh /tmp/
-COPY ./reinstall-cmake.sh /tmp/
-COPY ./install-clang.sh /tmp/
+# Build
+RUN mkdir -p /src/build && \
+    cd /src/build
+    # cmake -DCMAKE_BUILD_TYPE=Release \
+    #       -DCMAKE_C_COMPILER=/usr/bin/clang \
+    #       -DCMAKE_CXX_COMPILER=/usr/bin/clang++ \
+    #       -DCMAKE_AR=/usr/bin/llvm-ar \
+    #       -DCMAKE_RANLIB=/usr/bin/llvm-ranlib \
+    #       -DCMAKE_LINKER=/usr/bin/lld \
+    #       -DCMAKE_TOOLCHAIN_FILE=/vcpkg/scripts/buildsystems/vcpkg.cmake \
+    #       -DVCPKG_TARGET_TRIPLET=x64-linux \
+    #       -GNinja \
+    #       .. && \
+    # cmake --build . --config Release -j$(nproc)
 
-RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
-       chmod +x /tmp/reinstall-cmake.sh && /tmp/reinstall-cmake.sh ${REINSTALL_CMAKE_VERSION_FROM_SOURCE}; \
-   fi \
-   && rm -f /tmp/reinstall-cmake.sh
-
-RUN chmod +x /tmp/install-vcpkg.sh && /tmp/install-vcpkg.sh rm -f /tmp/install-vcpkg.sh
-ENV VCPKG_ROOT='/opt/vcpkg'
-RUN vcpkg x-update-baseline
-
-# this takes tooooo fucking loooooong that devcontainer just gives up, run this shell script locally when it's done so that it doesn't timeout
-# RUN chmod +x /tmp/install-clang.sh && /tmp/install-clang.sh rm -f /tmp/install-clang.sh
+# Binary location: /src/build/HiveWE
+# ENTRYPOINT ["/src/build/HiveWE"]
