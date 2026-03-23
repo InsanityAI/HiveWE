@@ -26,7 +26,7 @@
     {
       "name": "debug",
       "inherits": "default",
-      "displayName": "Debug",
+      "displayName": "Debug Windows",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
       }
@@ -34,7 +34,7 @@
     {
       "name": "relwithdebinfo",
       "inherits": "default",
-      "displayName": "RelWithDebInfo",
+      "displayName": "RelWithDebInfo Windows",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo"
       }
@@ -42,7 +42,7 @@
     {
       "name": "release",
       "inherits": "default",
-      "displayName": "Release",
+      "displayName": "Release Windows",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
         "CMAKE_INTERPROCEDURAL_OPTIMIZATION": "ON",
@@ -67,7 +67,7 @@
     {
       "name": "debug-g++",
       "inherits": "default-linux-g++",
-      "displayName": "Debug",
+      "displayName": "Debug G++",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
       }
@@ -75,7 +75,7 @@
     {
       "name": "relwithdebinfo-g++",
       "inherits": "default-linux-g++",
-      "displayName": "RelWithDebInfo",
+      "displayName": "RelWithDebInfo G++",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo"
       }
@@ -83,7 +83,7 @@
     {
       "name": "release-g++",
       "inherits": "default-linux-g++",
-      "displayName": "Release",
+      "displayName": "Release G++",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
         "CMAKE_INTERPROCEDURAL_OPTIMIZATION": "ON",
@@ -98,7 +98,7 @@
       "binaryDir": "${sourceDir}/build/${presetName}",
       "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
       "cacheVariables": {
-        "CMAKE_CXX_COMPILER": "/usr/bin/clang"
+        "CMAKE_CXX_COMPILER": "/opt/llvm/bin/clang"
       },
       "architecture": {
         "value": "x64",
@@ -108,7 +108,7 @@
     {
       "name": "debug-clang",
       "inherits": "default-linux-clang",
-      "displayName": "Debug",
+      "displayName": "Debug Clang",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
       }
@@ -116,7 +116,7 @@
     {
       "name": "relwithdebinfo-clang",
       "inherits": "default-linux-clang",
-      "displayName": "RelWithDebInfo",
+      "displayName": "RelWithDebInfo Clang",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "RelWithDebInfo"
       }
@@ -124,7 +124,7 @@
     {
       "name": "release-clang",
       "inherits": "default-linux-clang",
-      "displayName": "Release",
+      "displayName": "Release Clang",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
         "CMAKE_INTERPROCEDURAL_OPTIMIZATION": "ON",
