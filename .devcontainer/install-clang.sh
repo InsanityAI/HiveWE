@@ -8,5 +8,4 @@ tar xf llvm.tar.gz --strip-components=1 -C /opt/llvm
 # In /usr/local/bin directory, we can create a symbolic link to the clang command:
 ln -s /opt/llvm/bin/clang /usr/local/bin/clang
 ln -s /opt/llvm/bin/clang-scan-deps /usr/local/bin/clang-scan-deps
-ln -s /opt/llvm/bin/clang-scan-deps /usr/local/bin/clang-scan-deps-21
 rm llvm.tar.gz

@@ -18,6 +18,7 @@ RUN pacman-key --init && \
     tar \
     python \
     perl && \
+    mesa && \
     pacman -Sc --noconfirm
 
 ENV CC=/usr/bin/clang \
