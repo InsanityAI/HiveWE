@@ -3,14 +3,14 @@ module;
 #include <QSettings>
 #include <QPainter>
 #include <QIcon>
+#include <glad/glad.h>
+#include <glm/glm.hpp>
 
 export module OpenGLUtilities;
 
 import std;
 import ResourceManager;
 import Texture;
-import <glad/glad.h>;
-import <glm/glm.hpp>;
 
 namespace fs = std::filesystem;
 

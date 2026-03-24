@@ -1,9 +1,10 @@
+#include <glad/glad.h>
+
 export module Shader;
 
 import std;
 import ResourceManager;
 import Utilities;
-import <glad/glad.h>;
 
 namespace fs = std::filesystem;
 

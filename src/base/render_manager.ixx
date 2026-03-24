@@ -1,6 +1,9 @@
 module;
 
 #include <glad/glad.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/quaternion.hpp>
 
 export module RenderManager;
 
@@ -17,9 +20,6 @@ import Utilities;
 import Globals;
 import Units;
 import SLK;
-import <glm/glm.hpp>;
-import <glm/gtc/matrix_transform.hpp>;
-import <glm/gtc/quaternion.hpp>;
 import Doodads;
 
 export class RenderManager {

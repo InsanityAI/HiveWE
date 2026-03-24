@@ -1,7 +1,8 @@
+#include <ankerl/unordered_dense.h>
+
 export module UnorderedMap;
 
 import std;
-import "ankerl/unordered_dense.h";
 
 struct string_hash {
     using is_transparent = void; // enable heterogeneous lookup

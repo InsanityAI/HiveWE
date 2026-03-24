@@ -1,3 +1,6 @@
+#include <glm/glm.hpp>
+#include <glad/glad.h>
+
 export module EditableMesh;
 
 import std;
@@ -8,8 +11,6 @@ import Shader;
 import SkeletalModelInstance;
 import Hierarchy;
 import BinaryReader;
-import <glm/glm.hpp>;
-import <glad/glad.h>;
 
 namespace fs = std::filesystem;
 

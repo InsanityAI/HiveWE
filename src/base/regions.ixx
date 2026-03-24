@@ -1,9 +1,10 @@
+#include <glm/glm.hpp>
+
 export module Regions;
 
 import std;
 import BinaryReader;
 import Hierarchy;
-import <glm/glm.hpp>;
 
 export struct Region {
 	float left;

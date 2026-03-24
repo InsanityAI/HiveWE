@@ -5,7 +5,7 @@
 #define QT_NO_OPENGL
 #include <QObject>
 #include <QOpenGLWidget>
-#include "qt_imgui/qt_imGui.h"
+#include "qt_imgui/qt_imgui.h"
 #include <model_editor/model_editor_camera.h>
 
 import EditableMesh;

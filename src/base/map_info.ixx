@@ -1,3 +1,5 @@
+#include <glm/glm.hpp>
+
 export module MapInfo;
 
 import std;
@@ -6,7 +8,6 @@ import BinaryReader;
 import BinaryWriter;
 import Hierarchy;
 import Utilities;
-import <glm/glm.hpp>;
 
 export enum class PlayerType {
 	human,

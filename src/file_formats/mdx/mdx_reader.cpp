@@ -1,8 +1,9 @@
+#include <glm/glm.hpp>
+
 module MDX;
 
 import std;
 import BinaryReader;
-import <glm/glm.hpp>;
 
 namespace mdx {
 	void read_GEOS(BinaryReader& reader, MDX& mdx) {

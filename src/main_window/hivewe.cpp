@@ -10,26 +10,26 @@ import OpenGLUtilities;
 import Camera;
 import Globals;
 import Map;
-import <soil2/SOIL2.h>;
+#include <soil2/SOIL2.h>
 import MapGlobal;
 import WorldUndoManager;
-import "pathing_palette.h";
-import "object_editor/object_editor.h";
-import "model_editor/model_editor.h";
-import "tile_setter.h";
-import "map_info_editor.h";
-import "terrain_palette.h";
-import "settings_editor.h";
-import "tile_pather.h";
-import "palette.h";
-import "terrain_palette.h";
-import "doodad_palette.h";
-import "unit_palette.h";
-import "object_editor/icon_view.h";
-import "trigger_editor.h";
+#include "pathing_palette.h"
+#include "object_editor/object_editor.h"
+#include "model_editor/model_editor.h"
+#include "tile_setter.h"
+#include "map_info_editor.h"
+#include "terrain_palette.h"
+#include "settings_editor.h"
+#include "tile_pather.h"
+#include "palette.h"
+#include "terrain_palette.h"
+#include "doodad_palette.h"
+#include "unit_palette.h"
+#include "object_editor/icon_view.h"
+#include "trigger_editor.h"
 #include "QMessageBox"
 #include "QProcess"
-import "menus/gameplay_constants_editor.h";
+#include "menus/gameplay_constants_editor.h"
 
 namespace fs = std::filesystem;
 

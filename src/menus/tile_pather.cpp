@@ -6,7 +6,7 @@ import Texture;
 import MapGlobal;
 import SLK;
 import ResourceManager;
-import <glad/glad.h>;
+#include <glad/glad.h>
 
 TilePather::TilePather(QWidget *parent) : QDialog(parent) {
 	ui.setupUi(this);

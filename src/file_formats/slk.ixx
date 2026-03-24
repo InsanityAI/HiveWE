@@ -7,8 +7,8 @@ import BinaryReader;
 import Utilities;
 import INI;
 import UnorderedMap;
-import "absl/strings/str_split.h";
-import "absl/strings/str_join.h";
+#include "absl/strings/str_split.h"
+#include "absl/strings/str_join.h"
 
 namespace fs = std::filesystem;
 

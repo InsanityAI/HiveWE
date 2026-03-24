@@ -3,7 +3,7 @@
 #include <QRect>
 
 import std;
-import <glm/glm.hpp>;
+#include <glm/glm.hpp>
 import MapGlobal;
 import PathingUndo;
 import Camera;

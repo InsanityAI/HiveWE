@@ -11,7 +11,7 @@ import MapGlobal;
 import Globals;
 import SLK;
 import Texture;
-import <glm/glm.hpp>;
+#include <glm/glm.hpp>
 
 TileSetter::TileSetter(QWidget *parent) : QDialog(parent) {
 	ui.setupUi(this);

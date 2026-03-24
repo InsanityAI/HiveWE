@@ -1,9 +1,10 @@
+#include <turbojpeg.h>
+
 export module BLP;
 
 import std;
 import types;
 import BinaryReader;
-import <turbojpeg.h>;
 
 namespace blp {
 	export u8* load(BinaryReader& reader, int& width, int& height, int& channels) {

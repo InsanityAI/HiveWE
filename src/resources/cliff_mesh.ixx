@@ -1,3 +1,6 @@
+#include <glm/glm.hpp>
+#include <glad/glad.h>
+
 export module CliffMesh;
 
 import std;
@@ -5,8 +8,6 @@ import BinaryReader;
 import ResourceManager;
 import Hierarchy;
 import MDX;
-import <glm/glm.hpp>;
-import <glad/glad.h>;
 
 namespace fs = std::filesystem;
 

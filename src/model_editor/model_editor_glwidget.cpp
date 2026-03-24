@@ -7,7 +7,7 @@
 #include <QStandardPaths>
 #include <QDesktopServices>
 
-#include <qt_imgui/qt_imGui.h>
+#include <qt_imgui/qt_imgui.h>
 
 import std;
 import OpenGLUtilities;
@@ -16,7 +16,7 @@ import Hierarchy;
 import MDX;
 import Camera;
 import ResourceManager;
-import <imgui.h>;
+#include <imgui.h>
 
 namespace fs = std::filesystem;
 

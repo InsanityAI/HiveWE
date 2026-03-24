@@ -1,7 +1,8 @@
+#include <glm/glm.hpp>
+
 export module Utilities;
 
 import std;
-import <glm/glm.hpp>;
 import BinaryReader;
 import no_init_allocator;
 import types;

@@ -2,6 +2,8 @@ module;
 
 #include <QRect>
 #include <absl/strings/str_split.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 export module Units;
 
@@ -16,8 +18,6 @@ import ResourceManager;
 import Hierarchy;
 import Globals;
 import Terrain;
-import <glm/glm.hpp>;
-import <glm/gtc/matrix_transform.hpp>;
 
 namespace fs = std::filesystem;
 

@@ -1,10 +1,11 @@
+#include <CascLib.h>
+
 export module CASC;
 
 import std;
 import types;
 import no_init_allocator;
 import BinaryReader;
-import <CascLib.h>;
 
 namespace fs = std::filesystem;
 

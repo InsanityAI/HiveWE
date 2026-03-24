@@ -1,10 +1,11 @@
+#include <nlohmann/json.hpp>
+#include <glm/glm.hpp>
+
 module MDX;
 
 import std;
 import Timer;
-import <nlohmann/json.hpp>;
 using json = nlohmann::json;
-import <glm/glm.hpp>;
 
 namespace mdx {
 	/// A minimal utility wrapper around an std::string that manages newlines, indentation and closing braces

@@ -1,10 +1,11 @@
+#include <glm/glm.hpp>
+
 export module test;
 
 import std;
 import BinaryReader;
 import MDX;
 import no_init_allocator;
-import <glm/glm.hpp>;
 
 namespace fs = std::filesystem;
 

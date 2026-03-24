@@ -16,10 +16,10 @@ import SkinnedMesh;
 import SkeletalModelInstance;
 import Globals;
 import MapGlobal;
-import <glad/glad.h>;
-import <glm/glm.hpp>;
-import <glm/gtc/matrix_transform.hpp>;
-import <glm/gtc/quaternion.hpp>;
+#include <glad/glad.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/quaternion.hpp>
 
 DoodadBrush::DoodadBrush() : Brush() {
 	position_granularity = 2.f;

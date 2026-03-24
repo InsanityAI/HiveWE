@@ -1,4 +1,4 @@
-target_sources(HiveWE PUBLIC FILE_SET yeet TYPE CXX_MODULES FILES
+target_sources(HiveWE PUBLIC FILE_SET CXX_MODULES FILES
 	"types.ixx"
 	"map_global.ixx"
 	"globals.ixx"
@@ -48,7 +48,6 @@ target_sources(HiveWE PUBLIC FILE_SET yeet TYPE CXX_MODULES FILES
 	"resources/gpu_texture.ixx"
 	"resources/ground_texture.ixx"
 	"resources/shader.ixx"
-
 	"resources/texture.ixx"
 	"resources/pathing_texture.ixx"
 	"resources/qicon_resource.ixx"

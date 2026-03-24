@@ -1,7 +1,8 @@
+#include <glm/glm.hpp>
+
 module MDX;
 
 import std;
-import "glm/glm.hpp";
 
 namespace mdx {
 	/// Will not retain sequences and bones because there is no straightforward way to merge them

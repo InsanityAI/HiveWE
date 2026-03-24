@@ -11,8 +11,8 @@ import OpenGLUtilities;
 import RenderManager;
 import Globals;
 import PathingMap;
-import <glm/glm.hpp>;
-import <glm/gtc/matrix_transform.hpp>;
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 import MapGlobal;
 

@@ -2,6 +2,9 @@ module;
 
 #include <cassert>
 #include <chrono>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/quaternion.hpp>
 
 export module SkeletalModelInstance;
 
@@ -11,9 +14,6 @@ import Utilities;
 import MathOperations;
 import RenderNode;
 import MDX;
-import <glm/glm.hpp>;
-import <glm/gtc/matrix_transform.hpp>;
-import <glm/gtc/quaternion.hpp>;
 
 // Ghostwolf mentioned this to me once, so I used it,
 // as 0.75, experimentally determined as a guess at
