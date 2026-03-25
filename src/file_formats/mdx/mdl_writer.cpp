@@ -1,3 +1,5 @@
+module;
+
 #include <nlohmann/json.hpp>
 #include <glm/glm.hpp>
 

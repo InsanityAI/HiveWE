@@ -1,3 +1,5 @@
+module;
+
 #include <glm/glm.hpp>
 
 module MDX;

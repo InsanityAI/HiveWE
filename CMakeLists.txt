@@ -10,6 +10,9 @@ project (HiveWE CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_SCAN_FOR_MODULES OFF)
+set(CMAKE_EXPERIMENTAL_CXX_MODULE_CMAKE_API ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 find_package(Qt6 COMPONENTS Core Gui Widgets OpenGL OpenGLWidgets REQUIRED)
 find_package(Bullet CONFIG REQUIRED)
@@ -83,7 +86,7 @@ target_link_libraries(HiveWE PUBLIC
 
 target_compile_options(HiveWE PRIVATE
 	$<$<CXX_COMPILER_ID:MSVC>:/Zc:__cplusplus /MP /sdl /diagnostics:caret /permissive->
-	$<$<CXX_COMPILER_ID:Clang>:-Wextra -Wpedantic -Werror -Wno-multichar>
+	$<$<CXX_COMPILER_ID:Clang>:-Wextra -Wpedantic -Werror -Wno-multichar -fno-implicit-modules -fno-implicit-module-maps>
 	$<$<CXX_COMPILER_ID:GNU>:-Wall -Wextra -Wpedantic -Werror -Wno-multichar>
 )
 

@@ -2,7 +2,12 @@ module;
 
 #include <QObject>
 #include <QRect>
-
+#include <glad/glad.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/quaternion.hpp>
+#include <bullet/BulletCollision/CollisionShapes/btHeightfieldTerrainShape.h>
+#include <btBulletDynamicsCommon.h>
 #include <brush.h>
 
 export module Terrain;
@@ -22,12 +27,6 @@ import ResourceManager;
 import Globals;
 import Camera;
 import UnorderedMap;
-#include <glad/glad.h>
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/quaternion.hpp>
-#include <bullet/BulletCollision/CollisionShapes/btHeightfieldTerrainShape.h>
-#include <btBulletDynamicsCommon.h>
 
 using namespace std::literals::string_literals;
 
