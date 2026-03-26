@@ -4,7 +4,7 @@ import std;
 import Hierarchy;
 import Utilities;
 import Globals;
-import <glm/glm.hpp>;
+import glm/glm.hpp;
 import Units;
 import Doodads;
 import Regions;

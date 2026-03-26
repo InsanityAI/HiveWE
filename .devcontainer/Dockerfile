@@ -8,6 +8,8 @@ RUN pacman-key --init && \
     base-devel \
     clang \
     extra/llvm \
+    libc++ \
+    libc++abi \
     lld \
     cmake \
     ninja \
@@ -16,9 +18,9 @@ RUN pacman-key --init && \
     zip \
     unzip \
     tar \
+    mesa \
     python \
     perl && \
-    mesa && \
     pacman -Sc --noconfirm
 
 ENV CC=/usr/bin/clang \
