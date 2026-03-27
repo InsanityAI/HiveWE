@@ -1,0 +1,90 @@
+{
+  "version": 9,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 29,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "gcc",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "/usr/bin/g++",
+        "CMAKE_CXX_FLAGS": "-fmodules-ts -flang-info-module-cmi"
+      }
+    },
+    {
+      "name": "clang",
+      "hidden": true,
+      "environment": {
+      },
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "/usr/bin/clang++",
+        "CMAKE_CXX_FLAGS": "-std=c++23 -stdlib=libc++",
+        "CMAKE_EXE_LINKER_FLAGS": "-std=c++23 -stdlib=libc++ -fimplicit-modules -fimplicit-module-maps -fmodule-map-file=/IdeaProjects/HiveWE/build/debug-linux/vcpkg_installed/x64-linux/include/vcpkg.modulemap"
+      }
+    },
+    {
+      "name": "default",
+      "inherits": "clang",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+      },
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "trace": {
+        "mode": "expand"
+      }
+    },
+    {
+      "name": "debug-linux",
+      "inherits": "default",
+      "displayName": "Debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "relwithdebinfo-linux",
+      "inherits": "default",
+      "displayName": "RelWithDebInfo",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    },
+    {
+      "name": "release-linux",
+      "inherits": "default",
+      "displayName": "Release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION": "ON",
+        "CMAKE_VISIBILITY_PRESET": "hidden",
+        "CMAKE_VISIBILITY_INLINES_HIDDEN": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "Debug-Linux",
+      "configurePreset": "debug-linux",
+      "configuration": "Debug"
+    },
+    {
+      "name": "RelWithDebInfo-Linux",
+      "configurePreset": "relwithdebinfo-linux",
+      "configuration": "RelWithDebInfo"
+    },
+    {
+      "name": "Release-Linux",
+      "configurePreset": "release-linux",
+      "configuration": "Release"
+    }
+  ]
+}

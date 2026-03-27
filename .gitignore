@@ -6,3 +6,5 @@ backups
 build
 logs
 vc140.pdb
+pcm
+std.pcm

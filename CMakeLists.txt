@@ -85,7 +85,7 @@ target_link_libraries(HiveWE PUBLIC
 
 target_compile_options(HiveWE PRIVATE
 	$<$<CXX_COMPILER_ID:MSVC>:/Zc:__cplusplus /MP /sdl /diagnostics:caret /permissive->
-	$<$<CXX_COMPILER_ID:Clang>:-Wextra -Wpedantic -Werror -Wno-multichar -std=c++23 -stdlib=libc++>
+	$<$<CXX_COMPILER_ID:Clang>:-Wextra -Wpedantic -Werror -Wno-multichar>
 	$<$<CXX_COMPILER_ID:GNU>:-Wall -Wextra -Wpedantic -Werror -Wno-multichar -fmodules-ts -flang-info-module-cmi>
 )
 
