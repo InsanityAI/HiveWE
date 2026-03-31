@@ -9,9 +9,6 @@ cmake_minimum_required(VERSION 3.29)
 project (HiveWE CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_SCAN_FOR_MODULES OFF)
-set(CMAKE_EXPERIMENTAL_CXX_MODULE_CMAKE_API ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 find_package(Qt6 COMPONENTS Core Gui Widgets OpenGL OpenGLWidgets REQUIRED)
@@ -86,8 +83,8 @@ target_link_libraries(HiveWE PUBLIC
 
 target_compile_options(HiveWE PRIVATE
 	$<$<CXX_COMPILER_ID:MSVC>:/Zc:__cplusplus /MP /sdl /diagnostics:caret /permissive->
-	$<$<CXX_COMPILER_ID:Clang>:-Wextra -Wpedantic -Werror -Wno-multichar -fno-implicit-modules -fno-implicit-module-maps>
-	$<$<CXX_COMPILER_ID:GNU>:-Wall -Wextra -Wpedantic -Werror -Wno-multichar>
+	$<$<CXX_COMPILER_ID:Clang>:-Wextra -Wpedantic -Werror -Wno-multichar -Wno-unused-parameter -Wno-reserved-module-identifier>
+	$<$<CXX_COMPILER_ID:GNU>:-Wall -Wextra -Wpedantic -Werror -Wno-multichar -Wno-unused-parameter -Wno-reserved-module-identifier>
 )
 
 target_compile_definitions(HiveWE PRIVATE
@@ -111,10 +108,24 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
 	"$<TARGET_FILE_DIR:HiveWE>/data"
 )
 
-if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
-	set(QT_VCPKG_PATH "${CMAKE_CURRENT_BINARY_DIR}/vcpkg_installed/x64-linux/debug")
+if (WIN32)
+	if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+		set(QT_VCPKG_PATH "${CMAKE_CURRENT_BINARY_DIR}/vcpkg_installed/x64-windows/debug")
+	else()
+		set(QT_VCPKG_PATH "${CMAKE_CURRENT_BINARY_DIR}/vcpkg_installed/x64-windows")
+	endif()
 else()
-	set(QT_VCPKG_PATH "${CMAKE_CURRENT_BINARY_DIR}/vcpkg_installed/x64-linux")
+	if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+		set(QT_VCPKG_PATH "${CMAKE_CURRENT_BINARY_DIR}/vcpkg_installed/x64-linux/debug")
+	else()
+		set(QT_VCPKG_PATH "${CMAKE_CURRENT_BINARY_DIR}/vcpkg_installed/x64-linux")
+	endif()
+
+	target_sources(HiveWE
+			PUBLIC
+			FILE_SET CXX_MODULES
+			BASE_DIRS /usr/share/libc++/v1
+			FILES /usr/share/libc++/v1/std.cppm /usr/share/libc++/v1/std.compat.cppm)
 endif()
 
 file(COPY "${QT_VCPKG_PATH}/Qt6/plugins/platforms/" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_BUILD_TYPE}/platforms")

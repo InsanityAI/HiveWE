@@ -32,8 +32,6 @@ target_sources(HiveWE PUBLIC FILE_SET CXX_MODULES FILES
 	"base/terrain.ixx"
 
 	"base/triggers/triggers.ixx"
-	"base/triggers/gui.cpp"
-	"base/triggers/map_script.cpp"
 
 	"file_formats/blp.ixx"
 	"file_formats/casc.ixx"
@@ -160,5 +158,6 @@ target_sources(HiveWE PRIVATE
 	"qt_imgui/imgui_renderer.cpp"
 	"qt_imgui/qt_imgui.cpp"
 
-	
+	"base/triggers/gui.cpp"
+	"base/triggers/map_script.cpp"
  )

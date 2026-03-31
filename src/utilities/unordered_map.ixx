@@ -1,3 +1,5 @@
+module;
+
 #include <ankerl/unordered_dense.h>
 
 export module UnorderedMap;

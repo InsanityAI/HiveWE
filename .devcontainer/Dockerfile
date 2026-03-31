@@ -8,6 +8,8 @@ RUN pacman-key --init && \
     base-devel \
     clang \
     extra/llvm \
+    libc++ \
+    libc++abi \
     lld \
     cmake \
     ninja \
@@ -16,16 +18,19 @@ RUN pacman-key --init && \
     zip \
     unzip \
     tar \
+    mesa \
     python \
     perl && \
-    mesa && \
     pacman -Sc --noconfirm
 
 ENV CC=/usr/bin/clang \
     CXX=/usr/bin/clang++ \
     AR=/usr/bin/llvm-ar \
     RANLIB=/usr/bin/llvm-ranlib \
-    LD=/usr/bin/lld
+    LD=/usr/bin/lld \
+    VCPKG_ROOT=/vcpkg
+
+RUN chmod +x compile-libcpp.sh && compile-libcpp.sh
 
 WORKDIR /src
 COPY . .
@@ -36,7 +41,6 @@ RUN git clone --depth 1 https://github.com/Microsoft/vcpkg.git /vcpkg && \
     git fetch --depth 1 origin 9cbe1df2acf09b1d53cf6e48afa5fda44f61147d || git fetch origin 9cbe1df2acf09b1d53cf6e48afa5fda44f61147d && \
     git checkout 9cbe1df2acf09b1d53cf6e48afa5fda44f61147d && \
     /vcpkg/bootstrap-vcpkg.sh -disableMetrics
-ENV VCPKG_ROOT='/vcpkg'
 
 # Build
 RUN mkdir -p /src/build && \
